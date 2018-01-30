@@ -1,4 +1,4 @@
-# blog lite 2.0
+# blog lite 1.0
 
 
 ## 项目简介
@@ -8,18 +8,12 @@
 做到了没有一句废话， 没有一点冗余。  
 真正的**极简博客**
 
-## 另请注意
-
-
-这个项目一开始没有考虑做成产品对外，所以没有考虑主题化之类的。  
-如果有哪位哥哥有空给加上主题模块，那要是服务大众的事儿呢！  
-
 
 ## 使用说明
 - 安装nodejs&&npm
 - 克隆本项目到你的本地
 ```shell
-git clone https://github.com/Rozbo/blog
+git clone https://github.com/maixiaojie/maixiaojie.github.io
 ```
 - 进入博客目录安装依赖
 ```shell
@@ -32,9 +26,6 @@ npm install
 npm run build
 ```
 
-## 上个版本
-[1.0.0](1.0.0.md)
-
 
 ## 鸣谢列表
 
@@ -46,9 +37,7 @@ npm run build
 * [prismjs](https://prismjs.com)提供代码高亮支持
 
 
-## 相对于1.0更新
-
-此2.0对1.0有的非常多的改进,其中
+## 相对于上个版本
 
 - 更新vue 2 && webpack2
 - 移除`bulma` 界面框架
