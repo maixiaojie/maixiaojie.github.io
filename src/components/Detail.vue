@@ -30,7 +30,7 @@
             </section>
             </v-affix>
             <article>
-             <h1>{{detail.title}}</h1>
+             <h1 style="font-size: 2rem;">{{detail.title}}</h1>
 
 
 
@@ -64,7 +64,7 @@ export default {
     },
     mounted() {
         if (this.loading)
-            document.title = "loading ---- 青枫浦 Lite";
+            document.title = "loading ---- 麦晓杰 Lite";
     },
     destroyed() {
         this.loading = true;

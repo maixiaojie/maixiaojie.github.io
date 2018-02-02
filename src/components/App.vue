@@ -5,6 +5,7 @@
 
             <router-link :to="'/list'" class="brand">
                 麦晓杰 Lite</router-link>
+                <span>一个菜鸟前端的日常</span>
         </div>
     </nav>
     <section class="section" id="top">
