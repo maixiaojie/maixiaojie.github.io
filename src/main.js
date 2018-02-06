@@ -21,29 +21,25 @@ const routes = [
         redirect: '/'
     },
     {
-        path: '/detail/:id',
-        component: Detail
-    },
-    {
-        path: '/:id(\\d+)',
-        component: Detail
-    },
-    {
         path: '/',
         component: List,
-    },
-    {
-        path: '*',
-        component: Error,
-    }
+        children: [{
+            path: '/',
+            component: List
+        }]
+    },{
+            path: '/detail/:id',
+            component: Detail
+        }
+    
 ]
 
 
 
 var router = new Router({
-    base: __dirname,
+    // base: __dirname,
     routes: routes,
-    mode: 'history'
+    // mode: 'history'
 })
 
 

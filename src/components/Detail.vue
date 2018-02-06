@@ -12,7 +12,7 @@
             <section class="sidebar">
 
                     <transition-group appear name="list" tag="ul">
-                    <li v-for="toc in detail.rend.toc" v-bind:key="toc">
+                    <li v-for="(toc, index) in detail.rend.toc" v-bind:key="index">
                         <a v-smooth-scroll :href="'#'+toc.title" v-html="toc.title"></a>
                         <ul v-if="toc.sub.length>0">
                             <li v-for="sub in toc.sub">
@@ -36,23 +36,20 @@
 
                 <div v-html="detail.rend.html">
                 </div>
+               
 
 
             </article>
+             <div id="comments" class="commet"></div>
         </div>
     </section>
 </template>
 <script>
-import {
-    github
-} from '../helpers/github'
+import { github } from '../helpers/github'
 //import tocHelper from '../helpers/toc'
-import {
-    rend
-} from '../helpers/render'
+import { rend } from '../helpers/render'
 
 import vAffix from './Affix.vue'
-
 export default {
     name: 'Detail',
     data() {
@@ -71,6 +68,7 @@ export default {
     },
     created() {
         let flag=this.$route.params.id;
+        
         github.getDetail(flag).then(
             (res) => {
                 this.status='正在解析...';
@@ -78,6 +76,8 @@ export default {
                 this.detail = res;
                 this.detail.rend = rend(flag,this.detail.body);
                 document.title = res.title;
+                this.initCommet();
+                
             },
             (res) => {
                 this.status='从服务端数据失败...';
@@ -86,6 +86,21 @@ export default {
     },
     components: {
         vAffix
+    },
+    methods: {
+        initCommet() {
+            const gitment = new Gitment({
+              id: '',
+              owner: 'maixiaojie',
+              repo: 'maixiaojie.github.io',
+              oauth: {
+                client_id: '373d76e7ffd12855104c',
+                client_secret: '530dacb6f001170daaa3ab28270e4f02be7e365d',
+              }
+            })
+
+            gitment.render('comments')
+        }
     }
 }
 
