@@ -68,7 +68,8 @@ export default {
     },
     created() {
         this.flag=this.$route.params.id
-        github.getDetail(this.flag).then(
+        let flag = this.flag
+        github.getDetail(flag).then(
             (res) => {
                 this.status='正在解析...'
                 this.loading = true
