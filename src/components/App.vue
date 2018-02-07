@@ -14,10 +14,11 @@
     </section>
     <footer class="main">
         <p>京ICP备17016953号</p>
-        <p>from 2018.01  by <a href="http://mcust.cn/mc/">麦晓杰</a></p>   
+        <p>since 2018.01  by 麦晓杰</p>   
         <p class="less-significant">
-            <a href="https://github.com/maixiaojie/maixiaojie.github.io">源码地址</a>
-            <a href="http://mcust.cn/public/">全栈俱乐部</a>
+            <a target="__blank" href="https://github.com/maixiaojie/maixiaojie.github.io">源码地址</a>
+            <a target="__blank" href="http://mcust.cn/public/">全栈俱乐部</a>
+            我在<a target="__blank" href="http://mcust.cn/public/">掘金</a>、<a target="__blank" href="https://segmentfault.com/u/lavna">segmentfault</a>
         </p>
     </footer>
 </div>

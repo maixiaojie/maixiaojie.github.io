@@ -48,8 +48,7 @@ import { github } from '../helpers/github'
 import { rend } from '../helpers/render'
 import 'gitalk/dist/gitalk.css'
 import Gitalk from 'gitalk'
-/*import 'gitment/style/default.css'
-import Gitment from 'gitment'*/
+
 import vAffix from './Affix.vue'
 export default {
     name: 'Detail',
@@ -102,23 +101,10 @@ export default {
               owner: 'maixiaojie',
               admin: ['maixiaojie'],
               id: this.flag,
-              // facebook-like distraction free mode
               distractionFreeMode: false
             })
             gitalk.render('gitalk-container')
-         /*   const gitment = new Gitment({
-              id: 'comment', // optional
-              owner: 'maixiaojie',
-              repo: 'maixiaojie.github.io',
-              oauth: {
-                client_id: '373d76e7ffd12855104c',
-                client_secret: '530dacb6f001170daaa3ab28270e4f02be7e365d',
-              },
-              // ...
-              // For more available options, check out the documentation below
-            })
 
-            gitment.render('gitalk-container')*/
         }
     }
 }
