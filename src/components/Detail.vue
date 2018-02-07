@@ -55,35 +55,35 @@ export default {
         return {
             loading: false,
             detail: {},
+            flag: 0,
             status:'正在加载...',
         }
     },
     mounted() {
         if (this.loading)
-            document.title = "loading ---- 麦晓杰 Lite";
+            document.title = "loading ---- 麦晓杰 Lite"
     },
     destroyed() {
-        this.loading = false;
+        this.loading = false
     },
     created() {
-        let flag=this.$route.params.id;
-        
-        github.getDetail(flag).then(
+        this.flag=this.$route.params.id
+        github.getDetail(this.flag).then(
             (res) => {
-                this.status='正在解析...';
-                this.loading = true;
-                this.detail = res;
-                this.detail.rend = rend(flag,this.detail.body);
-                document.title = res.title;                            
+                this.status='正在解析...'
+                this.loading = true
+                this.detail = res
+                this.detail.rend = rend(flag,this.detail.body)
+                document.title = res.title
             },
             (res) => {
-                this.status='从服务端数据失败...';
+                this.status='从服务端数据失败...'
             }
         );
     },
     updated() {
         this.$nextTick(function(){
-            this.initCommet();
+            this.initCommet()
         });
     },
     components: {
@@ -91,16 +91,17 @@ export default {
     },
     methods: {
         initCommet() {
+            var that = this
             const gitalk = new Gitalk({
               clientID: '373d76e7ffd12855104c',
               clientSecret: '530dacb6f001170daaa3ab28270e4f02be7e365d',
               repo: 'maixiaojie.github.io',
               owner: 'maixiaojie',
               admin: ['maixiaojie'],
+              id: that.flag,
               // facebook-like distraction free mode
               distractionFreeMode: false
             })
-
             gitalk.render('gitalk-container')
         }
     }
