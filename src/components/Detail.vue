@@ -101,7 +101,7 @@ export default {
               repo: 'blogCommet',
               owner: 'maixiaojie',
               admin: ['maixiaojie'],
-              id: 'comment',
+              id: this.flag,
               // facebook-like distraction free mode
               distractionFreeMode: false
             })
