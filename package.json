@@ -39,6 +39,7 @@
     "webpack-dev-server": "^2.8.2"
   },
   "dependencies": {
+    "gitalk": "^1.2.2",
     "gitment": "0.0.3",
     "marked": "^0.3.6",
     "prismjs": "^1.7.0",

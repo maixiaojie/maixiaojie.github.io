@@ -1,12 +1,7 @@
 <template>
     <section>
-        <div v-if="loading" class="panel features">
-            <p>
-                <i class="iconfont icon-loading if-spin if-3x if-main"></i></p>
-            <p>{{status}}
-            </p>
-        </div>
-        <div v-else class="docs-wrapper container">
+        
+        <div v-if="loading" class="docs-wrapper container">
 
             <v-affix offset="0">
             <section class="sidebar">
@@ -31,30 +26,34 @@
             </v-affix>
             <article>
              <h1 style="font-size: 2rem;">{{detail.title}}</h1>
-
-
-
                 <div v-html="detail.rend.html">
-                </div>
-               
-
-
+                </div>               
+                <div id="gitalk-container" class="commet"></div>                
             </article>
-             <div id="comments" class="commet"></div>
+            
+             
         </div>
+        <div v-else class="panel features">
+            <p>
+                <i class="iconfont icon-loading if-spin if-3x if-main"></i></p>
+            <p>{{status}}
+            </p>
+        </div>
+
     </section>
 </template>
 <script>
 import { github } from '../helpers/github'
 //import tocHelper from '../helpers/toc'
 import { rend } from '../helpers/render'
-
+import 'gitalk/dist/gitalk.css'
+import Gitalk from 'gitalk'
 import vAffix from './Affix.vue'
 export default {
     name: 'Detail',
     data() {
         return {
-            loading: true,
+            loading: false,
             detail: {},
             status:'正在加载...',
         }
@@ -64,7 +63,7 @@ export default {
             document.title = "loading ---- 麦晓杰 Lite";
     },
     destroyed() {
-        this.loading = true;
+        this.loading = false;
     },
     created() {
         let flag=this.$route.params.id;
@@ -72,34 +71,37 @@ export default {
         github.getDetail(flag).then(
             (res) => {
                 this.status='正在解析...';
-                this.loading = false;
+                this.loading = true;
                 this.detail = res;
                 this.detail.rend = rend(flag,this.detail.body);
-                document.title = res.title;
-                this.initCommet();
-                
+                document.title = res.title;                            
             },
             (res) => {
                 this.status='从服务端数据失败...';
             }
         );
     },
+    updated() {
+        this.$nextTick(function(){
+            this.initCommet();
+        });
+    },
     components: {
         vAffix
     },
     methods: {
         initCommet() {
-            const gitment = new Gitment({
-              id: '',
-              owner: 'maixiaojie',
+            const gitalk = new Gitalk({
+              clientID: '373d76e7ffd12855104c',
+              clientSecret: '530dacb6f001170daaa3ab28270e4f02be7e365d',
               repo: 'maixiaojie.github.io',
-              oauth: {
-                client_id: '373d76e7ffd12855104c',
-                client_secret: '530dacb6f001170daaa3ab28270e4f02be7e365d',
-              }
+              owner: 'maixiaojie',
+              admin: ['maixiaojie'],
+              // facebook-like distraction free mode
+              distractionFreeMode: false
             })
 
-            gitment.render('comments')
+            gitalk.render('gitalk-container')
         }
     }
 }
