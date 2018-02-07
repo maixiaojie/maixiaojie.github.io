@@ -6,6 +6,8 @@
 这是一个基于[github api](https://api.github.com)与[vue](https://vue.org)的一个简单的博客，
 是一个SPA应用，利用`ajax`技术从`github`抓取到前台并实时呈现。  使用了[gitalk](https://github.com/gitalk/gitalk)来做文章评论功能，所有的文章数据和评论数据都保存在github上。如果喜欢的话就给个star吧~
 
+预览地址 [maixiaojie.github.io](https://maixiaojie.github.io)
+
 ## 使用说明
 - 安装nodejs&&npm
 - 克隆本项目到你的本地
