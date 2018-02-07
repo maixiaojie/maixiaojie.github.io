@@ -98,7 +98,7 @@ export default {
             const gitalk = new Gitalk({
               clientID: '373d76e7ffd12855104c',
               clientSecret: '530dacb6f001170daaa3ab28270e4f02be7e365d',
-              repo: 'maixiaojie.github.io',
+              repo: 'blogCommet',
               owner: 'maixiaojie',
               admin: ['maixiaojie'],
               id: 'comment',
