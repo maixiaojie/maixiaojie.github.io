@@ -26,7 +26,7 @@
             </v-affix>
             <article>
              <h1 style="font-size: 2rem;">{{detail.title}}</h1>
-                <div v-html="detail.rend.html">
+                <div  id="capture" style="padding: 2rem 0rem;" v-html="detail.rend.html">
                 </div>               
                 <div id="gitalk-container" class="commet"></div>                
             </article>
@@ -48,7 +48,7 @@ import { github } from '../helpers/github'
 import { rend } from '../helpers/render'
 import 'gitalk/dist/gitalk.css'
 import Gitalk from 'gitalk'
-
+import html2canvas from '../helpers/html2canvas.min.js'
 import vAffix from './Affix.vue'
 export default {
     name: 'Detail',
@@ -86,12 +86,18 @@ export default {
     updated() {
         this.$nextTick(function(){
             this.initCommet()
+            this.cerateImg()
         });
     },
     components: {
         vAffix
     },
     methods: {
+        cerateImg() {
+            html2canvas(document.querySelector("#capture")).then(canvas => {
+                document.body.appendChild(canvas)
+            })
+        },
         initCommet() {
             var that = this
             const gitalk = new Gitalk({
