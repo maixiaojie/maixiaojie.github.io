@@ -40,17 +40,27 @@ export function code(code,lang='',line=false){
     return `<pre class="language-${lang}${lineNumClass}"><code class="language-${lang}">${hl}</code></pre>`
 }
 function md2html(md) {
-    let res=marked(md);
-    return res;
+    try {
+        let res=marked(md);
+        return res;
+    }catch(e) {
+        console.log(e)
+    }
+    
 }
 
 export function rend(flag,src){
     if(!cache[flag]){
-        toc=[];
-        cache[flag]={};
-        cache[flag].html=md2html(src);
-        cache[flag].toc=tocList();
-        cache[flag].summary=summary(src);
+        try {
+            toc=[];
+            cache[flag]={};
+            cache[flag].html=md2html(src);
+            cache[flag].toc=tocList();
+            cache[flag].summary=summary(src);
+        }catch(e) {
+            console.log(e)
+        }
+        
     }
     return cache[flag];
 

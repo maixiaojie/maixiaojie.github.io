@@ -6,8 +6,8 @@
             <v-affix offset="0">
             <section class="sidebar">
 
-                    <transition-group appear name="list" tag="ul">
-                    <li v-for="(toc, index) in detail.rend.toc" v-bind:key="index">
+                    <transition-group appear name="list" tag="ul" >
+                    <li v-for="(toc, index) in detail.rend.toc" :key="index">
                         <a v-smooth-scroll :href="'#'+toc.title" v-html="toc.title"></a>
                         <ul v-if="toc.sub.length>0">
                             <li v-for="sub in toc.sub">
@@ -95,7 +95,7 @@ export default {
     methods: {
         cerateImg() {
             html2canvas(document.querySelector("#capture")).then(canvas => {
-                document.body.appendChild(canvas)
+                // document.body.appendChild(canvas)
             })
         },
         initCommet() {

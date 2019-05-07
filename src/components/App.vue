@@ -4,8 +4,9 @@
         <div class="container">
 
             <router-link :to="'/list'" class="brand">
-                麦晓杰 Lite</router-link>
-                <span>一个菜鸟前端的日常</span>
+                麦晓杰 Lite<span>一个菜鸟前端的日常</span></router-link>
+                
+            <router-link :to="'/leaveword'">留言板</router-link>
         </div>
     </nav>
     <section class="section" id="top">
@@ -17,8 +18,8 @@
         <p>since 2018.01  by 麦晓杰</p>   
         <p class="less-significant">
             <a target="__blank" href="https://github.com/maixiaojie/maixiaojie.github.io">源码地址</a>
-            <a target="__blank" href="http://mcust.cn/public/">全栈俱乐部</a>
-            我在<a target="__blank" href="http://mcust.cn/public/">掘金</a>、<a target="__blank" href="https://segmentfault.com/u/lavna">segmentfault</a>
+            <a target="__blank" href="http://zz.mcust.cn/">悠客</a>
+            我在<a target="__blank" href="https://juejin.im/user/57c683e75bbb500063543b45">掘金</a>、<a target="__blank" href="https://segmentfault.com/u/lavna">segmentfault</a>
         </p>
     </footer>
 </div>

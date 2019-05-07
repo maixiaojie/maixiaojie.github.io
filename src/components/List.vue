@@ -12,12 +12,15 @@
     </template>
     <div v-else class="blocks stacked">
 
-        <div class="block odd" v-for="item in details">
+        <div class="block odd" v-for="item in details" :key="item.number">
             <div class="text">
                 <h2><router-link :to="'/detail/'+item.number">{{item.title}}</router-link>
                     </h2>
                 <p v-html="item.rend.summary"></p>
             </div>
+        </div>
+        <div class="page_container">
+            <span class="page" :class="current == i? 'active': ''" @click="toPage(i)" v-for="i in perPage">{{i}}</span>
         </div>
 
     </div>
@@ -43,6 +46,11 @@ export default {
         return {
             loadOk: false,
             items: [],
+            total: 0, 
+            size: 7,
+            current: 1,
+            articles: [],
+            // perPage: [],
             status:'Loading...',
             loadingClass:'iconfont icon-loading if-spin if-3x if-main'
         }
@@ -53,7 +61,9 @@ export default {
     created() {
         github.getList().then(
             (res) => {
-                this.items = res;
+                this.articles = res;
+                this.total = this.articles.length;
+                this.items = this.articles.slice(0,this.size);
                 this.loadOk = true;
             },
             (res) => {
@@ -69,7 +79,21 @@ export default {
             }
             return this.items
         },
+        perPage: function() {
+            var total = Math.ceil(this.total / this.size) ;
+            var pages = [];
+            for(let i = 0; i< total; i++){
+                pages.push(i+1)
+            }
+            return pages;
+        },
         tip:getTip
+    },
+    methods: {
+        toPage(i) {
+            this.current = i;
+            this.items = this.articles.slice(this.size*(i-1),this.size * i);
+        }
     }
 }
 </script>

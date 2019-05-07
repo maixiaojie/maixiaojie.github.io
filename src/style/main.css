@@ -1551,8 +1551,18 @@ nav.main:after {
 nav.main a.brand {
     color: #e74430;
     font-size: 21px;
-    width: 130px;
+    width: 150px;
     line-height: 90px;
+    display: inline-block;
+    position: relative;
+}
+nav.main a.brand span {
+    position: absolute;
+    bottom: 14px;
+    left: 8px;
+    font-size: 12px;
+    display: inline-block;
+    line-height: 14px;
 }
 
 nav.main a.brand .iconic {
@@ -2421,4 +2431,55 @@ body.the-404 .contain .content, body.the-404 .contain .media {
 }
 .logo{
     font-size: 1.2em !important;
+}
+
+.page_container  {
+    padding: 20px 0;
+    text-align: center;
+}
+.page_container .page {
+    border-radius: 20px;
+    position: relative;
+    background: #4cb4e7;
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    line-height: 40px;
+    cursor: pointer;
+    color: white;
+    transition: all 1.5s;
+}
+.page_container .page:first-child::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: #FF6600;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}
+.page_container .page:last-child::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: #FF6600;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+}
+.page_container .page::before {
+    content: '';
+    width: 10px;
+    height: 1px;
+    background: #FF6600;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+  }
+.page_container .page:hover {
+    background: #4cc8e7;
+}
+.page_container .page.active {
+    background: #FF6666;
 }
