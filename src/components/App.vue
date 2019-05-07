@@ -5,8 +5,9 @@
 
             <router-link :to="'/list'" class="brand">
                 麦晓杰 Lite<span>一个菜鸟前端的日常</span></router-link>
-                
-            <router-link :to="'/leaveword'">留言板</router-link>
+            <router-link :to="'/leaveword'" :class="curPath == '/leaveword' ? 'active' : ''" class="menu">留言板</router-link>
+            <router-link :to="'/loveword'"  :class="curPath == '/loveword' ? 'active' : ''" class="menu">小情话</router-link>
+            
         </div>
     </nav>
     <section class="section" id="top">
@@ -31,7 +32,33 @@ export default {
     data: function() {
         return {
             subtitle: '麦晓杰 Lite',
+            curPath: '',
         }
+    },
+    watch: {
+        '$route'(newV) {
+            this.curPath = newV.path;
+        }
+    },
+    mounted() {
+        this.curPath = this.$route.path;
     }
 }
 </script>
+<style scope>
+.menu {
+    border-bottom: 1px solid #eee;
+    padding: 10px 15px;
+    text-align: center;
+    color: #71777c;
+    transition: all 0.5s;
+}
+.menu:hover {
+    color: #f4645f;
+    border-bottom: 1px solid #f4645f;
+}
+.menu.active {
+    color: #f4645f;
+    border-bottom: 1px solid #f4645f;
+}
+</style>

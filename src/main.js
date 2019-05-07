@@ -8,7 +8,7 @@ import Detail from './components/Detail.vue'
 import List from './components/List.vue'
 import Error from './components/Error.vue'
 import LeaveWord from './components/leaveword.vue'
-
+import Loveword from './components/lovewords.vue'
 // install router
 Vue.use(Router);
     //ajax
@@ -33,6 +33,9 @@ const routes = [
         },{
             path: '/leaveword',
             component: LeaveWord
+        },{
+            path: '/loveword',
+            component: Loveword
         }
     
 ]
