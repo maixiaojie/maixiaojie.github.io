@@ -7,6 +7,7 @@
                 麦晓杰 Lite<span>一个菜鸟前端的日常</span></router-link>
             <router-link :to="'/leaveword'" :class="curPath == '/leaveword' ? 'active' : ''" class="menu">留言板</router-link>
             <router-link :to="'/loveword'"  :class="curPath == '/loveword' ? 'active' : ''" class="menu">小情话</router-link>
+            <router-link :to="'/zl'"  :class="curPath == '/zl' || curPathName == 'al' ? 'active' : ''" class="menu">专栏</router-link>
             
         </div>
     </nav>
@@ -33,15 +34,18 @@ export default {
         return {
             subtitle: '麦晓杰 Lite',
             curPath: '',
+            curPathName: ''
         }
     },
     watch: {
         '$route'(newV) {
             this.curPath = newV.path;
+            this.curPathName = newV.name;
         }
     },
     mounted() {
         this.curPath = this.$route.path;
+        this.curPathName = this.$route.name;
     }
 }
 </script>
