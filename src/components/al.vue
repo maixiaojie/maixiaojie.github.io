@@ -11,12 +11,14 @@
         <div v-else>
             <ul class="article-list">
                 <li class="article" v-for="item in list" :key="item.id">
-                    <a href="/zl/detail/181">
+                    <!-- <a href="/zl/detail/181"> -->
+                    <router-link :to="{name: 'zldetail', params: {id: item.id}}">
                         <h2 class="article-item-title">{{item.article_title}}</h2>
                         <div class="article-item-more">
                             <span class="article-item-more-text">阅读全文</span> <i class="fa fa-angle-right"></i>
                         </div>
-                    </a>
+                    </router-link>
+                        
                 </li>
             </ul>
         </div>

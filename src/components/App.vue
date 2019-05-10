@@ -7,11 +7,11 @@
                 麦晓杰 Lite<span>一个菜鸟前端的日常</span></router-link>
             <router-link :to="'/leaveword'" :class="curPath == '/leaveword' ? 'active' : ''" class="menu">留言板</router-link>
             <router-link :to="'/loveword'"  :class="curPath == '/loveword' ? 'active' : ''" class="menu">小情话</router-link>
-            <router-link :to="'/zl'"  :class="curPath == '/zl' || curPathName == 'al' ? 'active' : ''" class="menu">专栏</router-link>
+            <router-link :to="'/zl'"  :class="curPath == '/zl' || curPathName == 'al' || curPathName == 'zldetail' ? 'active' : ''" class="menu">专栏</router-link>
             
         </div>
     </nav>
-    <section class="section" id="top">
+    <section class="section" id="top" style="margin-top: 20px;">
         <router-view>
         </router-view>
     </section>
