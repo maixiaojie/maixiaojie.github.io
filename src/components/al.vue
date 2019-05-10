@@ -9,22 +9,14 @@
             </p>
         </template>
         <div v-else>
-            <ul class="goods-list">
-                <li class="goods" v-for="item in list" :key="item.id">
-                    <div class="goods-img">
-                        <img :src="item.cover">
-                    </div>
-                    <div class="goods-info">
-                        <h6>{{item.title}}</h6>
-                        <p>状态：<span> {{item.status == '1' ? '完结' : '更新中'}}  </span></p>
-                    </div>
-                    <div class="other-info">
-                        <p>作者：{{item.author}}</p>
-                        <p>{{item.intro}}</p>
-                    </div>
-                    <div class="btn-warpper">
-                        <a class="btn" href="/al/48/0">开始学习<i class="ml5 fa fa-arrow-right"></i></a>
-                    </div>
+            <ul class="article-list">
+                <li class="article" v-for="item in list" :key="item.id">
+                    <a href="/zl/detail/181">
+                        <h2 class="article-item-title">{{item.article_title}}</h2>
+                        <div class="article-item-more">
+                            <span class="article-item-more-text">阅读全文</span> <i class="fa fa-angle-right"></i>
+                        </div>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -37,6 +29,8 @@ export default {
     data() {
         return {
             id: 0,
+            order: 1,
+            zl_info: {},
             list: [],
             flag: 4,
             loadOk: false,
@@ -57,10 +51,11 @@ export default {
     },
     methods: {
         getData() {
-            api.ZlList().then(
+            api.AlList(this.id, this.order).then(
                 (res) => {
                     console.log(res)
-                    this.list = res.data;
+                    this.list = res.articles;
+                    this.zl_info = res.zl_info;
                     this.loadOk = true;
                 },
                 (res) => {
@@ -94,5 +89,48 @@ export default {
 .tac {
     text-align: center;
 }
-
+.article-list {
+    list-style: none;
+    padding: 0;
+}
+.article-list img {
+    max-width: 100%;
+}
+.article-list .article {
+    cursor: pointer;
+    padding-top: 5px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-bottom: 9px;
+    background-color: #fff;
+    position: relative;
+}
+.article-list .article .article-item-title {
+    font-size: 17px;
+    color: #353535;
+    font-weight: 400;
+    line-height: 1.35;
+    margin: 6px 0;
+}
+.article-list .article .article-item-more {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-bottom-color: #e8e8e8;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.article-list .article .article-item-more .article-item-more-text {
+    color: #353535;
+    font-size: 12.5px;
+}
 </style>
