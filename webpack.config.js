@@ -1,6 +1,5 @@
 var webpack = require('webpack')
 const path = require('path');
-
 module.exports = {
     entry: './src/main.js',
     output: {
@@ -66,7 +65,7 @@ if (process.env.NODE_ENV === 'production') {
             },
             sourceMap: false
         }),
-        new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/)
+        new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/)        
     ]
 } else {
     module.exports.output.filename = "build.js";
