@@ -10,15 +10,16 @@
         </template>
         <div v-else>
             <ul class="article-list">
+                <p class="order" :nextOrder="nextOrder" :order="order">
+                    <router-link  :to="{name: 'al', params: {id: id}, query: { order: nextOrder}}"><span>{{orderFont}}</span>{{orderInfo}}</router-link>                    
+                    <span class="info">已经更新{{list.length}}篇</span></p>
                 <li class="article" v-for="item in list" :key="item.id">
-                    <!-- <a href="/zl/detail/181"> -->
-                    <router-link :to="{name: 'zldetail', params: {id: item.id}}">
+                    <router-link :to="{name: 'zldetail', params: {id: item.id}, query: {order: order}}">
                         <h2 class="article-item-title">{{item.article_title}}</h2>
                         <div class="article-item-more">
                             <span class="article-item-more-text">阅读全文</span> <i class="fa fa-angle-right"></i>
                         </div>
-                    </router-link>
-                        
+                    </router-link>                        
                 </li>
             </ul>
         </div>
@@ -31,7 +32,7 @@ export default {
     data() {
         return {
             id: 0,
-            order: 1,
+            order: 0,
             zl_info: {},
             list: [],
             flag: 4,
@@ -40,9 +41,26 @@ export default {
             loadingClass:'iconfont icon-loading if-spin if-3x if-main'
         }
     },
+    computed: {
+        nextOrder() {
+            return this.order == 1 ? 0 : 1;
+        },
+        orderInfo() {
+            return this.order == 1 ? '正序' : '倒序'
+        },
+        orderFont() {
+            return this.order == 1 ? '↓': '↑'
+        }
+    },
+    watch: {
+        '$route'(newV) {
+            this.order = newV.query.order;
+            this.getData();
+        }
+    },
     mounted() {
         this.id=this.$route.params.id
-        console.log(this.id)
+        this.order = this.$route.query.order == undefined ? 0 : this.$route.query.order
         this.getData()
     },
     created() {
@@ -50,6 +68,7 @@ export default {
     updated() {
     },
     components: {
+        
     },
     methods: {
         getData() {
@@ -87,6 +106,27 @@ export default {
         width: 100%;
         min-height: 500px;
     }
+}
+.order {
+    padding-left: 12px;
+    margin: 12px 0;
+}
+.order span.info {
+  color: #888;
+  font-size: 14px;
+  margin-left: 8px;
+  padding-left: 8px;
+  border-left-width: 1px;
+  border-left-color: #d9d9d9;
+  border-left-style: solid;
+}
+.order a {
+    color: #888;
+}
+.order a span {
+    vertical-align: bottom;
+    font-size: 19px;
+    margin-right: 2px;
 }
 .tac {
     text-align: center;

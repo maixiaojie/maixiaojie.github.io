@@ -23,7 +23,7 @@
                         <p>{{item.intro}}</p>
                     </div>
                     <div class="btn-warpper">
-                        <router-link :to="{name: 'al', params: {id: item.id}}" class="btn">开始学习<i class="ml5 fa fa-arrow-right"></i></router-link>                    
+                        <router-link :to="{name: 'al', params: {id: item.id}}" class="btn">开始学习</router-link>                    
                     </div>
                 </li>
             </ul>
@@ -40,7 +40,7 @@
                                 <p>{{item.intro}}</p>
                             </div>
                             <div class="btn-warpper">
-                                <router-link :to="{name: 'al', params: {id: item.id}}" class="btn">开始学习<i class="ml5 fa fa-arrow-right"></i></router-link>
+                                <router-link :to="{name: 'al', params: {id: item.id}}" class="btn">开始学习</router-link>
                                 <!-- <a class="btn" href="/al/48/0">开始学习<i class="ml5 fa fa-arrow-right"></i></a> -->
                             </div>
                         </div>

@@ -59,7 +59,7 @@ const routes = [
 var router = new Router({
     // base: __dirname,
     routes: routes,
-    // mode: 'history'
+    mode: 'hash'
 })
 
 
