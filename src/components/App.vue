@@ -4,14 +4,14 @@
         <div class="container">
 
             <router-link :to="'/list'" class="brand">
-                麦晓杰 Lite<span>一个菜鸟前端的日常</span></router-link>
+                永无止境<span>菜鸟季程序猿进化论</span></router-link>
             <router-link :to="'/leaveword'" :class="curPath == '/leaveword' ? 'active' : ''" class="menu">留言板</router-link>
             <router-link :to="'/loveword'"  :class="curPath == '/loveword' ? 'active' : ''" class="menu">小情话</router-link>
             <router-link :to="'/zl'"  :class="curPath == '/zl' || curPathName == 'al' || curPathName == 'zldetail' ? 'active' : ''" class="menu">专栏</router-link>
             
         </div>
     </nav>
-    <section class="section" id="top" style="margin-top: 20px;">
+    <section class="section" id="top" style="margin-top: 110px;">
         <router-view>
         </router-view>
     </section>
@@ -51,18 +51,18 @@ export default {
 </script>
 <style scope>
 .menu {
-    border-bottom: 1px solid #eee;
+    /* border-bottom: 1px solid #fff; */
     padding: 10px 15px;
     text-align: center;
-    color: #71777c;
+    color: #fff;
     transition: all 0.5s;
 }
 .menu:hover {
-    color: #f4645f;
-    border-bottom: 1px solid #f4645f;
+    color: hsla(0,0%,100%,.7);
+    border-bottom: 1px solid hsla(0,0%,100%,.7);
 }
 .menu.active {
-    color: #f4645f;
-    border-bottom: 1px solid #f4645f;
+    color: hsla(0,0%,100%,.7);
+    border-bottom: 1px solid hsla(0,0%,100%,.7);
 }
 </style>

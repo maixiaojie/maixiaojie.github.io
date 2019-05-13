@@ -1540,6 +1540,11 @@ nav.main {
     height: 90px;
     width: 100%;
     border-bottom: 1px solid #dee0df;
+    position: fixed;
+    top: 0;
+    z-index: 11;
+    background: #24292e;
+    
 }
 
 nav.main:after {
@@ -1549,7 +1554,7 @@ nav.main:after {
 }
 
 nav.main a.brand {
-    color: #e74430;
+    color: #fff;
     font-size: 21px;
     width: 150px;
     line-height: 90px;
