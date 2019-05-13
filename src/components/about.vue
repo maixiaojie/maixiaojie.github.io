@@ -52,6 +52,9 @@
 export default {
     name: 'about',
     computed:{
+    },
+    mounted() {
+        document.title = "关于 - YOKE工作室";
     }
 }
 </script>
