@@ -2488,3 +2488,6 @@ body.the-404 .contain .content, body.the-404 .contain .media {
 .page_container .page.active {
     background: #FF6666;
 }
+.gt-comment-body blockquote{
+    background: none;
+}

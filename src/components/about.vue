@@ -31,7 +31,7 @@
         <p>1. “悠客专栏”，整理互联网各领域大佬精品专栏课程。内容前沿，涉及领域广，程序猿必读。</p>
         <p class="tac"><a href="https://zz.mcust.cn/zl" target="__blank"><img src="https://zz.mcust.cn/public/banner/banner01.png" alt=""></a></p>
         <p>2. “悠客社区”小程序，非营利性资源共享交流平台，利用优质的学习资源帮助开发者和在校大学生，现有优质视频8000+个，优质文章10000+篇。</p>
-        <p class="tac"><img style="width: 300px;" src="https://wx4.sinaimg.cn/mw690/8f29f10bly1g1whfrwh6sj20u01hcao6.jpg" alt=""></p>
+        <p class="tac"><img style="width: 300px;" src="https://cdn.nlark.com/yuque/0/2019/jpeg/238895/1557738487961-f65be9ef-fe4b-4144-9bb2-3d5b4c094692.jpeg" alt=""></p>
         <p class="line"></p>
         <p class="intro_title">加入我们：</p>
         <p>给我们留言即可，看到消息后，我们会第一时间联系您。</p>
@@ -54,6 +54,7 @@ export default {
     computed:{
     },
     mounted() {
+        window.scrollTo(0, 0);
         document.title = "关于 - YOKE工作室";
     }
 }
