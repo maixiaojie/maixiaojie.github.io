@@ -76,7 +76,7 @@ export default {
                 this.loading = true
                 this.detail = res
                 this.detail.rend = rend(flag,this.detail.body)
-                document.title = res.title
+                document.title = '麦晓杰的日志 - ' + res.title
             },
             (res) => {
                 this.status='从服务端数据失败...'

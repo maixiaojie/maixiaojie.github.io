@@ -59,6 +59,7 @@ export default {
         }
     },
     mounted() {
+        window.scrollTo(0, 0);
         this.id=this.$route.params.id
         this.order = this.$route.query.order == undefined ? 0 : this.$route.query.order
         this.getData()
@@ -78,6 +79,7 @@ export default {
                     this.list = res.articles;
                     this.zl_info = res.zl_info;
                     this.loadOk = true;
+                    document.title = this.zl_info.title;
                 },
                 (res) => {
                     this.status=`Error:${res.statusText}`;

@@ -68,6 +68,8 @@ export default {
         }
     },
     mounted() {
+        window.scrollTo(0, 0);
+        document.title = "专栏 - Lite";
         this.getData()
         this.initCommet()
     },

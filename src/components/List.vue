@@ -56,7 +56,7 @@ export default {
         }
     },
     mounted() {
-        document.title = "麦晓杰 Lite";
+        document.title = "麦晓杰的日志";
     },
     created() {
         github.getList().then(
@@ -91,6 +91,7 @@ export default {
     },
     methods: {
         toPage(i) {
+            window.scrollTo(0, 0);
             this.current = i;
             this.items = this.articles.slice(this.size*(i-1),this.size * i);
         }

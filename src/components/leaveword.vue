@@ -14,6 +14,8 @@ export default {
         }
     },
     mounted() {
+        window.scrollTo(0, 0);
+        document.title = "留言板 - 麦晓杰的个人网站";
         this.initCommet()
     },
     created() {
