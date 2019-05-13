@@ -12,6 +12,7 @@ import Loveword from './components/lovewords.vue'
 import ZL from './components/zl.vue'
 import AL from './components/al.vue'
 import ZlDetail from './components/zlDetail.vue'
+import About from './components/about.vue'
 // install router
 Vue.use(Router);
     //ajax
@@ -50,6 +51,9 @@ const routes = [
             path: '/zldetail/:id',
             name: 'zldetail',
             component: ZlDetail
+        }, {
+            path: '/about',
+            component: About
         }
     
 ]
