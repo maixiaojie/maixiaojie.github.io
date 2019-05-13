@@ -27,6 +27,26 @@
                     </div>
                 </li>
             </ul>
+            <ul class="mb-goods-list">
+                <li v-for="item in list" :key="item.id">
+                    <div class="mb-goods-img">
+                        <img :src="item.cover">
+                    </div>
+                    <div class="mb-goods-info">
+                        <h6>{{item.title}}</h6>
+                        <div class="operate">
+                            <div class="other-info">
+                                <p>作者：{{item.author}} |  状态：<span>{{item.status == '1' ? '完结' : '更新中'}} </span></p>
+                                <p>{{item.intro}}</p>
+                            </div>
+                            <div class="btn-warpper">
+                                <router-link :to="{name: 'al', params: {id: item.id}}" class="btn">开始学习<i class="ml5 fa fa-arrow-right"></i></router-link>
+                                <!-- <a class="btn" href="/al/48/0">开始学习<i class="ml5 fa fa-arrow-right"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
         
          <div id="gitalk-container" class="commet"></div>  
@@ -100,11 +120,23 @@ export default {
         min-height: 500px;
         margin: auto;
     }
+    .mb-goods-list {
+        display: none;
+    }
+    .goods-list {
+        display: block;
+    }
 }
 @media(max-width: 1000px) {
     .zl-container {
         width: 100%;
         min-height: 500px;
+    }
+    .mb-goods-list {
+        display: block;
+    }
+    .goods-list {
+        display: none;
     }
 }
 .tac {
@@ -175,5 +207,95 @@ export default {
     -webkit-appearance: none;
     cursor: pointer;
     text-align: center;
+}
+.mb-goods-list {
+    padding: 10px 0px;
+    background: #fff;
+    list-style: none;
+}
+.mb-goods-list li{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    padding: 14px 0;
+}
+.mb-goods-list .mb-goods-img {
+    -ms-flex: 60px 0 0px;
+    flex: 60px 0 0;
+}
+.mb-goods-list .mb-goods-img img{
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: #eee;
+    border-radius: 4px;
+    max-width: 100%;
+}
+.mb-goods-list .mb-goods-info{
+    -ms-flex: 1;
+    flex: 1;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding-left: 14px;
+}
+.mb-goods-list .mb-goods-info h6 {
+    overflow: hidden;
+    display: -webkit-box;
+    line-height: 22px;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    font-size: 16px;
+    font-weight: 500;
+    color: #353535;
+    margin: 0;
+}
+.mb-goods-list .mb-goods-info .operate {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.mb-goods-list .mb-goods-info .operate .other-info {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+.mb-goods-list .mb-goods-info .operate .other-info p{
+    padding-top: 7px;
+    line-height: 12px;
+    font-size: 12px;
+    color: #888;
+    margin: 0;
+}
+.mb-goods-list .mb-goods-info .operate .btn-warpper {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: end;
+    align-items: flex-end;
+}
+.mb-goods-list .mb-goods-info .operate .btn-warpper a.btn {
+    width: 98px;
+    border-radius: 26px;
+    line-height: 14px;
+    font-size: 14px;
+    font-weight: 500;
+    background: #fff;
+    border: 1px solid #fc5a22;
+    color: #fc5a22;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 26px;
 }
 </style>
